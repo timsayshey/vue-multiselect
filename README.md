@@ -1,31 +1,34 @@
 # vue-multiselect ![Build Status](https://circleci.com/gh/shentao/vue-multiselect/tree/2.0.svg?style=shield&circle-token=5c931ff28fd12587610f835472becdd514d09cef)[![Codecov branch](https://img.shields.io/codecov/c/github/shentao/vue-multiselect/2.0.svg)](https://codecov.io/gh/shentao/vue-multiselect/branch/2.0)[![npm](https://img.shields.io/npm/v/vue-multiselect.svg)](https://www.npmjs.com/package/vue-multiselect)
-Probably the most complete *selecting* solution for Vue.js 2.0, without jQuery.
+
+Probably the most complete _selecting_ solution for Vue.js 2.0, without jQuery.
 
 ![Vue-Multiselect Screen](https://raw.githubusercontent.com/shentao/vue-multiselect/2.0/multiselect-screen-203.png)
 
 ### Features & characteristics:
-* NO dependencies
-* Single select
-* Multiple select
-* Tagging
-* Dropdowns
-* Filtering
-* Search with suggestions
-* Logic split into mixins
-* Basic component and support for custom components
-* V-model support
-* Vuex support
-* Async options support
-* \> 95% test coverage
-* Fully configurable (see props list below)
+
+- NO dependencies
+- Single select
+- Multiple select
+- Tagging
+- Dropdowns
+- Filtering
+- Search with suggestions
+- Logic split into mixins
+- Basic component and support for custom components
+- V-model support
+- Vuex support
+- Async options support
+- \> 95% test coverage
+- Fully configurable (see props list below)
 
 ## Breaking changes:
-* Instead of Vue.partial for custom option templates you can use a custom render function.
-* The `:key` props has changed to `:track-by`, due to conflicts with Vue 2.0.
-* Support for `v-model`
-* `@update` has changed to `@input` to also work with v-model
-* `:selected` has changed to `:value` for the same reason
-* Browserify users: if you wish to import `.vue` files, please add `vueify` transform.
+
+- Instead of Vue.partial for custom option templates you can use a custom render function.
+- The `:key` props has changed to `:track-by`, due to conflicts with Vue 2.0.
+- Support for `v-model`
+- `@update` has changed to `@input` to also work with v-model
+- `:selected` has changed to `:value` for the same reason
+- Browserify users: if you wish to import `.vue` files, please add `vueify` transform.
 
 ## Install & basic usage
 
@@ -36,24 +39,21 @@ npm install vue-multiselect
 ```vue
 <template>
   <div>
-    <multiselect
-      v-model="selected"
-      :options="options">
-    </multiselect>
+    <multiselect v-model="selected" :options="options"> </multiselect>
   </div>
 </template>
 
 <script>
-  import Multiselect from 'vue-multiselect'
-  export default {
-    components: { Multiselect },
-    data () {
-      return {
-        selected: null,
-        options: ['list', 'of', 'options']
-      }
+import Multiselect from 'vue-multiselect'
+export default {
+  components: { Multiselect },
+  data () {
+    return {
+      selected: null,
+      options: ['list', 'of', 'options']
     }
   }
+}
 </script>
 
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
@@ -64,10 +64,12 @@ npm install vue-multiselect
 [Example JSFiddle](https://jsfiddle.net/shentao/jqofkzxc/) – Use this for issue reproduction.
 
 ## Examples
+
 in jade-lang/pug-lang
 
 ### Single select / dropdown
-``` jade
+
+```jade
 multiselect(
   :value="value",
   :options="source",
@@ -82,7 +84,8 @@ multiselect(
 ```
 
 ### Single select with search
-``` jade
+
+```jade
 multiselect(
   v-model="value",
   :options="source",
@@ -95,7 +98,8 @@ multiselect(
 ```
 
 ### Multiple select with search
-``` jade
+
+```jade
 multiselect(
   v-model="multiValue",
   :options="source",
@@ -108,8 +112,10 @@ multiselect(
 ```
 
 ### Tagging
+
 with `@tag` event
-``` jade
+
+```jade
 multiselect(
   v-model="taggingSelected",
   :options="taggingOptions",
@@ -123,7 +129,7 @@ multiselect(
 )
 ```
 
-``` javascript
+```javascript
 
 addTag (newTag) {
   const tag = {
@@ -136,7 +142,8 @@ addTag (newTag) {
 ```
 
 ### Asynchronous dropdown
-``` jade
+
+```jade
 multiselect(
   v-model="selectedCountries",
   :options="countries",
@@ -151,7 +158,7 @@ multiselect(
     Oops! No elements found. Consider changing the search query.
 ```
 
-``` javascript
+```javascript
 methods: {
   asyncFind (query) {
     this.countries = findService(query)
@@ -161,7 +168,7 @@ methods: {
 
 ## Contributing
 
-``` bash
+```bash
 # serve with hot reload at localhost:8080
 npm run dev
 
